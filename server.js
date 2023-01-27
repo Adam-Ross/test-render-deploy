@@ -2,9 +2,12 @@ const express = require('express');
 const app = express();
 const {Pool} = require('pg');
 const dotenv = require('dotenv')
+const PORT = process.env.PORT || 3000
 
 
 dotenv.config()
+
+
 
 // const dbConfig = {
 //     user: 'garrettross',
@@ -26,7 +29,7 @@ app.use(express.json())
 // get all
 app.get('/pets', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM pets');
+        const result = await pool.query('SELECT * FROM pet');
         res.json(result.rows);
     } catch (err) {
         res.status(500).json({ error: err });
@@ -39,4 +42,4 @@ app.get('/pets', async (req, res) => {
 
 
 
-app.listen(3000, () => console.log('Server started on port 3000'));
+app.listen(PORT);

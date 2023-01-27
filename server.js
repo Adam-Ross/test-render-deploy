@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const {Pool} = require('pg');
 const dotenv = require('dotenv')
-const PORT = process.env.PORT || 3000
+
 
 
 dotenv.config()
@@ -42,4 +42,6 @@ app.get('/pets', async (req, res) => {
 
 
 
-app.listen(PORT);
+app.listen(3000, () => {
+    console.log('running on port: 3000')
+});

@@ -31,7 +31,7 @@ app.use(express.json())
 // get all
 app.get('/pets', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM pet');
+        const result = await pool.query('SELECT * FROM pets');
         res.json(result.rows);
     } catch (err) {
         res.status(500).json({ error: err });
@@ -44,4 +44,4 @@ app.get('/pets', async (req, res) => {
 
 
 
-app.listen(process.env.PORT);
+app.listen(PORT);

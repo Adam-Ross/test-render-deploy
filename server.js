@@ -3,7 +3,7 @@ const app = express();
 const {Pool} = require('pg');
 const dotenv = require('dotenv')
 
-
+const PORT = process.env.PORT || 3000
 
 dotenv.config()
 
